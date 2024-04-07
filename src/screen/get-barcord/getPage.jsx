@@ -75,6 +75,25 @@ export default function GetPage() {
        </Box>
        <Box h={1} /> 
         {/* 다운로드 버튼 */}
+        <Stack direction='row' justifyContent='space-between'>
+          <Box>
+          <Button
+        p={3}
+        bg='#ffffff'
+        color='#2a2929'
+        borderRadius={10}
+        display="flex" // 이 부분을 추가하여 Flex 컨테이너로 만듭니다.
+        alignItems="center" // 아이콘과 텍스트를 세로 중앙으로 정렬합니다.
+        justifyContent="center" // 아이콘과 텍스트를 가로 중앙으로 정렬합니다.
+        onClick={() => navigate('/')}
+      >
+        <Text 
+        as='b'
+        fontSize='sm'
+        >다시 만들기</Text> {/* 아이콘과 텍스트 사이의 마진을 추가합니다. */}
+      </Button>
+          </Box>
+          <Box>
        <Box
         display="flex"
         alignItems='flex-end'
@@ -115,7 +134,9 @@ export default function GetPage() {
         fontSize='sm'
         >전체</Text> {/* 아이콘과 텍스트 사이의 마진을 추가합니다. */}
       </Button>
+      </Box>
        </Box>
+       </Stack>
        <Box>
 
        </Box>

@@ -2,10 +2,12 @@ import { Body, Container } from '../../style/style'
 import { useNavigate } from 'react-router-dom';
 import { Button, Box, Stack, Text } from '@chakra-ui/react'
 import { useEffect, useState } from 'react';
+import Spinner from 'react-spinner-material';
 
 export default function CreateButtonPage({buttonRef, pictureRef, scrollToRef, name, title, startDate, endDate, images }) {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     return () => {
@@ -15,13 +17,18 @@ export default function CreateButtonPage({buttonRef, pictureRef, scrollToRef, na
 
   const handleNextStep = () => {
     if(title != "" && images.length >= 30 && images.length <= 120){
-    navigate('/get-barcord', { state: {
-      name: name,
-      title: title,
-      startDate: startDate,
-      endDate: endDate,
-      images: images
-    }})
+      setLoading(true); 
+
+        setTimeout(() => { // setTimeout은 비동기 작업을 시뮬레이션하기 위해 사용
+        navigate('/get-barcord', { state: {
+          name: name,
+          title: title,
+          startDate: startDate,
+          endDate: endDate,
+          images: images
+        }});
+        setLoading(false); // 로딩 상태 해제
+      }, 2000); // 로딩 시뮬레이션을 위한 2초 지연
   } else {
     setErrorMessage(true);
   }
@@ -30,6 +37,12 @@ export default function CreateButtonPage({buttonRef, pictureRef, scrollToRef, na
   return (
     <Body>
       <Container>
+      {loading ? (
+        // 로딩 중에 표시할 컴포넌트
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+          <Spinner size={120} spinnerColor={"#333"} spinnerWidth={2} visible={loading} />
+        </div>
+      ) : (
       <Stack 
       direction='column'
       p={50}
@@ -73,6 +86,7 @@ export default function CreateButtonPage({buttonRef, pictureRef, scrollToRef, na
           이전으로
         </Button>
         </ Stack>
+         )}
       </Container>
     </Body>
   )
