@@ -37,7 +37,7 @@ export default function CreateInputPicturePage({images,setImages, inputRef, pict
         images={images}
         setImages={setImages}
         />
-        <Box mt={50} />
+        <Box mt={30} />
         <Stack direction='row'>
         <Button 
         colorScheme='blackAlpha' 

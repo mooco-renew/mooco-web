@@ -29,7 +29,7 @@ export default function CreateInputPage({startDate, setStartDate, endDate, setEn
         as='b'
         mt={20}
         >기록하고 싶은 이벤트의 정보를 입력해주세요.</Text>
-        <Box mt={20} />
+        <Box mt={10} />
         <Text color='rgba(255, 255, 255, 0.8)' fontSize='sm' >이름</Text>
         <CustomCreateInput value={name} setValue={handleNameChange} placeholder="이름을 입력해주세요."/>
         <Text color='rgba(255, 255, 255, 0.8)' fontSize='sm'>제목</Text>
@@ -38,7 +38,7 @@ export default function CreateInputPage({startDate, setStartDate, endDate, setEn
         <CustomCreateDatePicker value={startDate} setValue={setStartDate}/>
         <Text color='rgba(255, 255, 255, 0.8)' fontSize='sm'>종료일</Text>
         <CustomCreateDatePicker value={endDate} setValue={setEndDate}/>
-        <Box mt={100} />
+        <Box mt={10} />
         <Button 
         colorScheme='whiteAlpha' 
         size='lg'
