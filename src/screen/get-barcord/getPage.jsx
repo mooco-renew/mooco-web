@@ -44,7 +44,7 @@ export default function GetPage() {
       // 바코드 다운로드 함수
   const downloadImage = async () => {
     try {
-      const imageSrc = '/src/assets/barcord/barcord-sample.png'; // 이미지 소스
+      const imageSrc = 'https://pbs.twimg.com/media/FT2eEjYUAAI_bJ1.jpg:large'; // 이미지 소스
       const response = await fetch(imageSrc);
       const blob = await response.blob(); // 이미지를 blob으로 변환
       saveAs(blob, `${name}'s barcord.png`); // 파일로 저장, 파일 이름을 "sample-barcord.jpg"로 지정
@@ -67,7 +67,7 @@ export default function GetPage() {
        <Box h={2} /> 
        <Box w='100%' borderRadius={15} >
         <Image 
-        src='/src/assets/barcord/barcord-sample.png' 
+        src='https://pbs.twimg.com/media/FT2eEjYUAAI_bJ1.jpg:large' 
         alt='barcord'
         w='100%' 
         borderRadius={15}
