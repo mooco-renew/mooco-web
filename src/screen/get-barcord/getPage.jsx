@@ -7,6 +7,7 @@ import EventMooco  from '/src/assets/barcord/event-mooco.svg';
 import EventEvent  from '/src/assets/barcord/event-event.svg';
 import { FaDownload } from 'react-icons/fa';
 import CustomGetPicture from '../../component/get-barcord/CustomGetPicture';
+import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
 
 export default function GetPage() {
@@ -28,6 +29,18 @@ export default function GetPage() {
       return `${year}.${month}.${day}`;
     };    
 
+    // 전체 화면 다운
+    const captureAndDownloadScreenshot = () => {
+      // 캡처하고 싶은 요소의 ref 또는 직접 선택
+      const element = document.getElementById('captureArea'); // 예시로 'captureArea'라는 ID를 가진 요소를 선택
+      html2canvas(element).then((canvas) => {
+        // 캔버스를 이미지로 변환
+        canvas.toBlob((blob) => {
+          saveAs(blob, "screenshot.png"); // 이미지 파일로 저장
+        });
+      });
+    };
+
       // 바코드 다운로드 함수
   const downloadImage = async () => {
     try {
@@ -42,7 +55,7 @@ export default function GetPage() {
 
 
   return (
-    <Body id="captureArea">
+    <Body>
       <Container>
       <Stack 
       direction='column'
@@ -82,7 +95,25 @@ export default function GetPage() {
         ml={2}
         as='b'
         fontSize='sm'
-        >다운로드</Text> {/* 아이콘과 텍스트 사이의 마진을 추가합니다. */}
+        >바코드</Text> {/* 아이콘과 텍스트 사이의 마진을 추가합니다. */}
+      </Button>
+      <Box w={3} />
+      <Button
+        p={3}
+        bg='#2A2929'
+        color='#ffffff'
+        borderRadius={10}
+        display="flex" // 이 부분을 추가하여 Flex 컨테이너로 만듭니다.
+        alignItems="center" // 아이콘과 텍스트를 세로 중앙으로 정렬합니다.
+        justifyContent="center" // 아이콘과 텍스트를 가로 중앙으로 정렬합니다.
+        onClick={captureAndDownloadScreenshot}
+      >
+        <FaDownload />
+        <Text 
+        ml={2}
+        as='b'
+        fontSize='sm'
+        >전체</Text> {/* 아이콘과 텍스트 사이의 마진을 추가합니다. */}
       </Button>
        </Box>
        <Box>
