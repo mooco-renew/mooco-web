@@ -13,7 +13,7 @@ import { saveAs } from 'file-saver';
 export default function GetPage() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { title, startDate, endDate, images} = location.state;
+  const { name, title, startDate, endDate, images} = location.state;
 
    // 페이지 최상단으로 스크롤하는 부분
    useEffect(() => {
@@ -36,7 +36,7 @@ export default function GetPage() {
       html2canvas(element).then((canvas) => {
         // 캔버스를 이미지로 변환
         canvas.toBlob((blob) => {
-          saveAs(blob, "screenshot.png"); // 이미지 파일로 저장
+          saveAs(blob, `${name}'s pull-screen.png`); // 이미지 파일로 저장
         });
       });
     };
@@ -44,10 +44,10 @@ export default function GetPage() {
       // 바코드 다운로드 함수
   const downloadImage = async () => {
     try {
-      const imageSrc = '/src/assets/barcord/sample-barcord.jpg'; // 이미지 소스
+      const imageSrc = '/src/assets/barcord/barcord-sample.png'; // 이미지 소스
       const response = await fetch(imageSrc);
       const blob = await response.blob(); // 이미지를 blob으로 변환
-      saveAs(blob, `${title}'s barcord.jpg`); // 파일로 저장, 파일 이름을 "sample-barcord.jpg"로 지정
+      saveAs(blob, `${name}'s barcord.png`); // 파일로 저장, 파일 이름을 "sample-barcord.jpg"로 지정
     } catch (error) {
       console.error("다운로드 중 오류 발생:", error);
     }
@@ -67,7 +67,7 @@ export default function GetPage() {
        <Box h={2} /> 
        <Box w='100%' borderRadius={15} >
         <Image 
-        src='/src/assets/barcord/sample-barcord.jpg' 
+        src='/src/assets/barcord/barcord-sample.png' 
         alt='barcord'
         w='100%' 
         borderRadius={15}
@@ -139,17 +139,25 @@ export default function GetPage() {
          alignItems='flex-end'
          justifyContent='flex-end'
         >
+          <Stack direction='row'>
+          <Text
+        as='b'
+        fontSize='lg'
+        >
+          {name || "undefined"}의
+        </Text>
         <img src={EventEvent} />
+        </Stack>
         </Box>
         <Box
-        h={5}
+        h={2}
         >
         </Box>
         <Text
         as='b'
         fontSize='3xl'
         >
-          {title}
+          {title || "undifined"}
         </Text>
         <Text
         fontSize='md'
@@ -176,7 +184,7 @@ export default function GetPage() {
         <Text 
         color='#ffffff'
         fontSize='sm'
-        >{images.length}장</Text> {/* 아이콘과 텍스트 사이의 마진을 추가합니다. */}
+        >{images.length || 0}장</Text> {/* 아이콘과 텍스트 사이의 마진을 추가합니다. */}
       </Box>
       </Box>
       <CustomGetPicture images={images}/>

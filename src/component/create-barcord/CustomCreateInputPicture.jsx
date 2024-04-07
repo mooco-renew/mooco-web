@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { FaCamera } from 'react-icons/fa'; // react-icons에서 카메라 아이콘 가져오기
+import { FaCamera, FaTimesCircle  } from 'react-icons/fa'; // react-icons에서 카메라 아이콘 가져오기
 import "/src/component/create-barcord/CustomCreateValue.css";
 
 export default function CustomCreateInputPicture({images, setImages}) {
@@ -12,6 +12,14 @@ export default function CustomCreateInputPicture({images, setImages}) {
     );
     setImages([...images, ...newImages]);
   };
+
+    // 이미지 삭제 함수
+    const removeImage = (event, index) => {
+      event.stopPropagation(); // 이벤트 전파 중단
+      setImages(images.filter((_, imgIndex) => index !== imgIndex));
+    };
+    
+  
 
   // 파일 입력 활성화 함수
   const activateFileInput = () => {
@@ -36,6 +44,10 @@ export default function CustomCreateInputPicture({images, setImages}) {
         {images.map((image, index) => (
           <div key={index} className='InputImageWrap'>
             <img src={image} alt={`img-${index}`} className='InputImageStyle' />
+             {/* 이미지 삭제 버튼 */}
+             <button onClick={(event) => removeImage(event, index)} className='ImageRemoveButton'>
+              <FaTimesCircle size="20%" className='CancleIconStyle' />
+            </button>
           </div>
         ))}
       </div>

@@ -11,6 +11,7 @@ export default function CreatePage() {
   const buttonRef = useRef(null); // Button 섹션을 위한 ref
 
   const [title, setTitle] = useState("");
+  const [name, setName] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
@@ -24,7 +25,10 @@ export default function CreatePage() {
   }, []);
   
   // title 변경용 input
-  const handleChange = (event) => setTitle(event.target.value);
+  const handleTitleChange = (event) => setTitle(event.target.value);
+
+  // name 변경용 input
+  const handleNameChange = (event) => setName(event.target.value);
 
     // 특정 섹션으로 스크롤하는 함수
     const scrollToRef = (ref) => {
@@ -39,7 +43,9 @@ export default function CreatePage() {
     endDate={endDate}
     setEndDate={setEndDate}
     title={title}
-    handleChange={handleChange}
+    name={name}
+    handleTitleChange={handleTitleChange}
+    handleNameChange={handleNameChange}
     inputRef={inputRef}
     pictureRef={pictureRef}
     scrollToRef={scrollToRef}
@@ -56,6 +62,7 @@ export default function CreatePage() {
     buttonRef={buttonRef}
     pictureRef={pictureRef}
     scrollToRef={scrollToRef}
+    name={name}
     title={title}
     startDate={startDate}
     endDate={endDate}

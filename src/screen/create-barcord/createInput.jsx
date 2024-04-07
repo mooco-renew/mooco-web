@@ -5,7 +5,7 @@ import { Button, Box, Stack } from '@chakra-ui/react'
 import { Text } from '@chakra-ui/react'
 import { useEffect} from 'react';
 
-export default function CreateInputPage({startDate, setStartDate, endDate, setEndDate, title, handleChange, inputRef, pictureRef, scrollToRef}) {
+export default function CreateInputPage({startDate, setStartDate, endDate, setEndDate, title, name, handleTitleChange,  handleNameChange, inputRef, pictureRef, scrollToRef}) {
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => {
@@ -22,19 +22,21 @@ export default function CreateInputPage({startDate, setStartDate, endDate, setEn
       p={50}
       ref={inputRef}
       >
-        <Box y={50}/>
         <Text 
         fontSize='xl'
         color='#ffffff'
         textAlign='center'
         as='b'
-        mt={60}
-        >제목, 시작일, 종료일을 입력해주세요.</Text>
+        mt={20}
+        >기록하고 싶은 이벤트의 정보를 입력해주세요.</Text>
         <Box mt={20} />
-        <CustomCreateInput value={title} setValue={handleChange}/>
-        <Box mt={1} />
+        <Text color='rgba(255, 255, 255, 0.8)' fontSize='sm' >이름</Text>
+        <CustomCreateInput value={name} setValue={handleNameChange} placeholder="이름을 입력해주세요."/>
+        <Text color='rgba(255, 255, 255, 0.8)' fontSize='sm'>제목</Text>
+        <CustomCreateInput value={title} setValue={handleTitleChange} placeholder="이벤트명을 입력해주세요."/>
+        <Text color='rgba(255, 255, 255, 0.8)' fontSize='sm'>시작일</Text>
         <CustomCreateDatePicker value={startDate} setValue={setStartDate}/>
-        <Box mt={1} />
+        <Text color='rgba(255, 255, 255, 0.8)' fontSize='sm'>종료일</Text>
         <CustomCreateDatePicker value={endDate} setValue={setEndDate}/>
         <Box mt={100} />
         <Button 

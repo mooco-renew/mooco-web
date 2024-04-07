@@ -3,20 +3,20 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Box, Stack, Text } from '@chakra-ui/react'
 import { useEffect, useState } from 'react';
 
-export default function CreateButtonPage({buttonRef, pictureRef, scrollToRef, title, startDate, endDate, images }) {
+export default function CreateButtonPage({buttonRef, pictureRef, scrollToRef, name, title, startDate, endDate, images }) {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState(false);
 
   useEffect(() => {
-    document.body.style.overflow = 'hidden';
     return () => {
-      document.body.style.overflow = 'auto';
+      setErrorMessage(false);
     }
   }, []);
 
   const handleNextStep = () => {
     if(title != "" && images.length >= 30 && images.length <= 120){
     navigate('/get-barcord', { state: {
+      name: name,
       title: title,
       startDate: startDate,
       endDate: endDate,
