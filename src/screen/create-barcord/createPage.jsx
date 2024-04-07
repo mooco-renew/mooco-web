@@ -16,13 +16,6 @@ export default function CreatePage() {
   const [endDate, setEndDate] = useState(new Date());
 
   const [images, setImages] = useState([]);
-
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = 'auto';
-    }
-  }, []);
   
   // title 변경용 input
   const handleTitleChange = (event) => setTitle(event.target.value);
@@ -36,7 +29,7 @@ export default function CreatePage() {
     };
 
   return (
-   <div style={{ overflow: 'hidden' }}>
+   <div>
     <CreateInputPage 
     startDate={startDate} 
     setStartDate={setStartDate} 

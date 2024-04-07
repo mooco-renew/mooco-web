@@ -37,7 +37,8 @@ export default function CreateInputPicturePage({images,setImages, inputRef, pict
         setImages={setImages}
         />
         <Box mt={30} />
-        <Stack direction='row'>
+        {/*
+             <Stack direction='row'>
         <Button 
         colorScheme='blackAlpha' 
         size='lg'
@@ -55,6 +56,7 @@ export default function CreateInputPicturePage({images,setImages, inputRef, pict
           다음으로
         </Button>
         </Stack>
+        */}
         </Stack>
       </Container>
     </Body>

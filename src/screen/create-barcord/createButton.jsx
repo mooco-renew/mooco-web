@@ -77,7 +77,8 @@ export default function CreateButtonPage({buttonRef, pictureRef, scrollToRef, na
         >
           바코드 생성하기
         </Button>
-        <Box mt={2} />
+        {/* 
+          <Box mt={2} />
         <Button 
         colorScheme='blackAlpha' 
         size='lg'
@@ -85,6 +86,7 @@ export default function CreateButtonPage({buttonRef, pictureRef, scrollToRef, na
         >
           이전으로
         </Button>
+        */}
         </ Stack>
          )}
       </Container>

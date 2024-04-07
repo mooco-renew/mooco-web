@@ -5,7 +5,7 @@ import "/src/component/get-barcord/CustomGetValue.css";
 export default function CustomGetPicture({images}) {
   return (
     <div>
-      <div className='GridImagesWrap'>
+      <div className='GetGridImagesWrap'>
         {/* 이미지 목록 */}
         {images.map((image, index) => (
           <div key={index} className='GetImageWrap'>

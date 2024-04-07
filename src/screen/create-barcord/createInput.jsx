@@ -6,12 +6,6 @@ import { Text } from '@chakra-ui/react'
 import { useEffect} from 'react';
 
 export default function CreateInputPage({startDate, setStartDate, endDate, setEndDate, title, name, handleTitleChange,  handleNameChange, inputRef, pictureRef, scrollToRef}) {
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = 'auto';
-    }
-  }, []);
 
   return (
     <Body>
@@ -38,7 +32,8 @@ export default function CreateInputPage({startDate, setStartDate, endDate, setEn
         <Text color='rgba(255, 255, 255, 0.8)' fontSize='sm'>종료일</Text>
         <CustomCreateDatePicker value={endDate} setValue={setEndDate}/>
         <Box mt={10} />
-        <Button 
+        {/* 
+          <Button 
         colorScheme='whiteAlpha' 
         size='lg'
         w={100}
@@ -46,6 +41,7 @@ export default function CreateInputPage({startDate, setStartDate, endDate, setEn
         >
           다음으로
         </Button>
+        */}
         <Box />
         </Stack>
       </Container>
