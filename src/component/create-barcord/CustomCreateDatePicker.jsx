@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { BsCalendarWeek } from "react-icons/bs";
-import "/src/component/barcord/CustomCreateValue.css";
+import "/src/component/create-barcord/CustomCreateValue.css";
 
 export default function CustomCreateDatePicker({value, setValue}) {
   const datePickerRef = useRef(null);

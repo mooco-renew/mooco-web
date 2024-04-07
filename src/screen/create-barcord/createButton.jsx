@@ -1,9 +1,8 @@
 import { Body, Container } from '../../style/style'
 import { useNavigate } from 'react-router-dom';
-import { Button, Box, Stack } from '@chakra-ui/react'
-import { Text } from '@chakra-ui/react'
+import { Button, Box, Stack, Text } from '@chakra-ui/react'
 
-export default function CreateButtonPage({buttonRef, pictureRef, scrollToRef}) {
+export default function CreateButtonPage({buttonRef, pictureRef, scrollToRef, title, startDate, endDate, images }) {
   const navigate = useNavigate();
 
   return (
@@ -24,7 +23,12 @@ export default function CreateButtonPage({buttonRef, pictureRef, scrollToRef}) {
         <Button 
         colorScheme='whiteAlpha' 
         size='lg'
-        onClick={() => navigate('/get-barcord')}
+        onClick={() => navigate('/get-barcord', { state: {
+          title: title,
+          startDate: startDate,
+          endDate: endDate,
+          images: images
+        }})}
         >
           바코드 생성하기
         </Button>

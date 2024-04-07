@@ -1,0 +1,21 @@
+/* 사진 출력 */
+.GridImagesWrap{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.GetImageWrap{
+    width: 100%;
+    padding-bottom: 100%;
+    position: relative;
+}
+
+.GetImageStyle{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

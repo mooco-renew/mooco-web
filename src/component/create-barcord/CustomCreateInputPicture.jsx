@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { FaCamera } from 'react-icons/fa'; // react-icons에서 카메라 아이콘 가져오기
-import "/src/component/barcord/CustomCreateValue.css";
+import "/src/component/create-barcord/CustomCreateValue.css";
 
 export default function CustomCreateInputPicture({images, setImages}) {
   const fileInputRef = useRef(null); // 파일 입력을 위한 ref 생성

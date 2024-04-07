@@ -1,7 +1,7 @@
 import { Body, Container } from '../../style/style'
 import { Box, Stack } from '@chakra-ui/react'
 import { Button, Text } from '@chakra-ui/react'
-import CustomCreateInputPicture from '../../component/barcord/CustomCreateInputPicture';
+import CustomCreateInputPicture from '../../component/create-barcord/CustomCreateInputPicture';
 
 export default function CreateInputPicturePage({images,setImages, inputRef, pictureRef, buttonRef, scrollToRef}) {
   return (

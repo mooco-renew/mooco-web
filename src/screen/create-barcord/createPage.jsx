@@ -49,6 +49,10 @@ export default function CreatePage() {
     buttonRef={buttonRef}
     pictureRef={pictureRef}
     scrollToRef={scrollToRef}
+    title={title}
+    startDate={startDate}
+    endDate={endDate}
+    images={images}
     />
    </div>
   )

@@ -1,7 +1,7 @@
 import React from 'react'
 import { BsCalendar4Event } from "react-icons/bs";
 import { Input } from '@chakra-ui/react'
-import "/src/component/barcord/CustomCreateValue.css";
+import "/src/component/create-barcord/CustomCreateValue.css";
 
 
 export default function CustomCreateInput({value, setValue}) {

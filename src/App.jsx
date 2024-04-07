@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import MainPage from './screen/main/MainPage';
-import CreatePage from './screen/barcord/createPage';
-import GetPage from './screen/barcord/getPage';
+import CreatePage from './screen/create-barcord/createPage';
+import GetPage from './screen/get-barcord/getPage';
 
 function App() {
   function setScreenSize() {

@@ -1,5 +1,5 @@
-import CustomCreateDatePicker from '../../component/barcord/CustomCreateDatePicker'
-import CustomCreateInput from '../../component/barcord/CustomCreateInput'
+import CustomCreateDatePicker from '../../component/create-barcord/CustomCreateDatePicker'
+import CustomCreateInput from '../../component/create-barcord/CustomCreateInput'
 import { Body, Container } from '../../style/style'
 import { Button, Box, Stack } from '@chakra-ui/react'
 import { Text } from '@chakra-ui/react'
