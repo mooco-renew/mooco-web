@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import MainPage from './screen/main/MainPage';
+import CreatePage from './screen/barcord/createPage';
+import GetPage from './screen/barcord/getPage';
 
 function App() {
   function setScreenSize() {
@@ -13,8 +15,9 @@ function App() {
 
   return (
     <Routes>
-    <Route path='/' element={<MainPage />} >
-    </Route>
+    <Route path='/' element={<MainPage />} />
+    <Route path='/create-barcord' element={<CreatePage />} />
+    <Route path='/get-barcord' element={<GetPage />} />
   </Routes>
   )
 }
