@@ -3,12 +3,14 @@ import React, { useEffect, useRef, useState } from 'react';
 import CreateInputPage from './\bcreateInput';
 import CreateInputPicturePage from './createInputImages';
 import CreateButtonPage from './createButton';
+import Spinner from 'react-spinner-material';
 
 export default function CreatePage() {
   const navigate = useNavigate();
   const inputRef = useRef(null); // datepicker
   const pictureRef = useRef(null); // CustomCreateInputPicture 섹션을 위한 ref
   const buttonRef = useRef(null); // Button 섹션을 위한 ref
+  const [loading, setLoading] = useState(false);
 
   const [title, setTitle] = useState("");
   const [name, setName] = useState("");
@@ -29,8 +31,18 @@ export default function CreatePage() {
     };
 
   return (
-   <div>
-    <CreateInputPage 
+   <div style={{ backgroundColor: '#151515'}}>
+    {loading ? 
+    (
+            // 로딩 중에 표시할 컴포넌트
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+            <Spinner size={120} spinnerColor={"#333"} spinnerWidth={2} visible={loading} />
+          </div>
+    ) 
+    :
+    (
+      <div>
+         <CreateInputPage 
     startDate={startDate} 
     setStartDate={setStartDate} 
     endDate={endDate}
@@ -60,7 +72,11 @@ export default function CreatePage() {
     startDate={startDate}
     endDate={endDate}
     images={images}
+    setLoading={setLoading}
     />
+      </div>
+    )
+    }
    </div>
   )
 }
