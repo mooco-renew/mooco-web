@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const Body = styled.div`
-height: calc(var(--vh, 1vh) * 100);
-background-color: #151515;
 width: 100%;
 aligh-items: center;
 input:focus {
@@ -22,8 +20,10 @@ font-size: 16px;
 
 export const Container = styled.div`
 width: 100%;
-height: 100%;
+min-height: calc(var(--vh, 1vh) * 100);
+overflow-y: auto;
 display: flex; 
 align-items: center; 
 justify-content: center;
+background-color: #151515;
 `

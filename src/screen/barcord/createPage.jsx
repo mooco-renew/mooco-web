@@ -1,42 +1,55 @@
-import CustomCreateDatePicker from '../../component/barcord/CustomCreateDatePicker'
-import CustomCreateInput from '../../component/barcord/CustomCreateInput'
-import { Body, Container } from '../../style/style'
 import { useNavigate } from 'react-router-dom';
-import { Button, Box, Stack } from '@chakra-ui/react'
-import { Text } from '@chakra-ui/react'
+import React, { useEffect, useRef, useState } from 'react';
+import CreateInputPage from './\bcreateInput';
+import CreateInputPicturePage from './createInputImages';
+import CreateButtonPage from './createButton';
 
 export default function CreatePage() {
   const navigate = useNavigate();
+  const inputRef = useRef(null); // datepicker
+  const pictureRef = useRef(null); // CustomCreateInputPicture 섹션을 위한 ref
+  const buttonRef = useRef(null); // Button 섹션을 위한 ref
+
+  const [title, setTitle] = useState("");
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+
+  const [images, setImages] = useState([]);
+
+  // title 변경용 input
+  const handleChange = (event) => setTitle(event.target.value);
+
+    // 특정 섹션으로 스크롤하는 함수
+    const scrollToRef = (ref) => {
+      ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: "nearest" });
+    };
 
   return (
-    <Body>
-      <Container>
-      <Stack 
-      direction='column'
-      p={50}
-      >
-        <Text 
-        fontSize='xl'
-        color='#ffffff'
-        textAlign='center'
-        as='b'
-        >(4xl) 함께 할 이벤트 생성하기</Text>
-        <Box mt={20} />
-        <CustomCreateInput />
-        <Box mt={1} />
-        <CustomCreateDatePicker />
-        <Box mt={1} />
-        <CustomCreateDatePicker />
-        <Box mt={10} />
-        <Button 
-        colorScheme='whiteAlpha' 
-        size='lg'
-        onClick={() => navigate('/get-barcord')}
-        >
-          추억 여행을 떠나보세요.
-        </Button>
-        </Stack>
-      </Container>
-    </Body>
+   <div style={{ overflow: 'hidden' }}>
+    <CreateInputPage 
+    startDate={startDate} 
+    setStartDate={setStartDate} 
+    endDate={endDate}
+    setEndDate={setEndDate}
+    title={title}
+    handleChange={handleChange}
+    inputRef={inputRef}
+    pictureRef={pictureRef}
+    scrollToRef={scrollToRef}
+    />
+    <CreateInputPicturePage 
+    images={images}
+    setImages={setImages}
+    inputRef={inputRef}
+    pictureRef={pictureRef}
+    buttonRef={buttonRef}
+    scrollToRef={scrollToRef}
+    />
+    <CreateButtonPage 
+    buttonRef={buttonRef}
+    pictureRef={pictureRef}
+    scrollToRef={scrollToRef}
+    />
+   </div>
   )
 }

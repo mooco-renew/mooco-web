@@ -4,8 +4,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { BsCalendarWeek } from "react-icons/bs";
 import "/src/component/barcord/CustomCreateValue.css";
 
-export default function CustomCreateDatePicker() {
-  const [value, setValue] = useState(new Date()); // 오늘 날짜를 초기값으로 설정한다.
+export default function CustomCreateDatePicker({value, setValue}) {
   const datePickerRef = useRef(null);
 
   const openDatePicker = () => {
