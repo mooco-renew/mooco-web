@@ -1,11 +1,18 @@
 import { Body, Container } from '../../style/style'
 import { useNavigate } from 'react-router-dom';
 import { Button, Box, Stack, Text } from '@chakra-ui/react'
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function CreateButtonPage({buttonRef, pictureRef, scrollToRef, title, startDate, endDate, images }) {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'auto';
+    }
+  }, []);
 
   const handleNextStep = () => {
     if(title != "" && images.length >= 30 && images.length <= 120){

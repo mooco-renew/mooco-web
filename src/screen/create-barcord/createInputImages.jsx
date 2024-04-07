@@ -4,6 +4,7 @@ import { Button, Text } from '@chakra-ui/react'
 import CustomCreateInputPicture from '../../component/create-barcord/CustomCreateInputPicture';
 
 export default function CreateInputPicturePage({images,setImages, inputRef, pictureRef, buttonRef, scrollToRef}) {
+
   return (
     <Body>
       <Container>
@@ -18,6 +19,7 @@ export default function CreateInputPicturePage({images,setImages, inputRef, pict
         color='#ffffff'
         textAlign='center'
         as='b'
+        mt={50}
         >사진을 넣어주세요. (30~120장 사이)</Text>
           <Text 
         fontSize='sm'
@@ -31,12 +33,11 @@ export default function CreateInputPicturePage({images,setImages, inputRef, pict
         textAlign='center'
         as='b'
         >현재 {images.length}장</Text>
-        <Box mt={50} />
         <CustomCreateInputPicture 
         images={images}
         setImages={setImages}
         />
-        <Box mt={100} />
+        <Box mt={50} />
         <Stack direction='row'>
         <Button 
         colorScheme='blackAlpha' 

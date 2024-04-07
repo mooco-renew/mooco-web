@@ -16,6 +16,13 @@ export default function CreatePage() {
 
   const [images, setImages] = useState([]);
 
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'auto';
+    }
+  }, []);
+  
   // title 변경용 input
   const handleChange = (event) => setTitle(event.target.value);
 
