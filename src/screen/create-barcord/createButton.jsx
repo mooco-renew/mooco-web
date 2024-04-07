@@ -8,7 +8,7 @@ export default function CreateButtonPage({buttonRef, pictureRef, scrollToRef, ti
   const [errorMessage, setErrorMessage] = useState(false);
 
   const handleNextStep = () => {
-    if(title != "" && images.length > 0) {
+    if(title != "" && images.length >= 30 && images.length <= 120){
     navigate('/get-barcord', { state: {
       title: title,
       startDate: startDate,
