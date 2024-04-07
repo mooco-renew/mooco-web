@@ -49,7 +49,7 @@ export default function GetPage() {
         alignItems='flex-end'
         justifyContent='flex-end'
              >
-       <Box
+       <Button
         p={3}
         bg='#2A2929'
         color='#ffffff'
@@ -64,7 +64,7 @@ export default function GetPage() {
         as='b'
         fontSize='sm'
         >다운로드</Text> {/* 아이콘과 텍스트 사이의 마진을 추가합니다. */}
-      </Box>
+      </Button>
        </Box>
        <Box>
 
