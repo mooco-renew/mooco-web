@@ -19,7 +19,6 @@ export default function CreateInputPicturePage({images,setImages, inputRef, pict
         color='#ffffff'
         textAlign='center'
         as='b'
-        mt={50}
         >사진을 넣어주세요. (30~120장 사이)</Text>
           <Text 
         fontSize='sm'

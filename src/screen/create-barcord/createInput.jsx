@@ -27,7 +27,6 @@ export default function CreateInputPage({startDate, setStartDate, endDate, setEn
         color='#ffffff'
         textAlign='center'
         as='b'
-        mt={20}
         >기록하고 싶은 이벤트의 정보를 입력해주세요.</Text>
         <Box mt={10} />
         <Text color='rgba(255, 255, 255, 0.8)' fontSize='sm' >이름</Text>
