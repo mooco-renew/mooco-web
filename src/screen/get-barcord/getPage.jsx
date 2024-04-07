@@ -59,7 +59,7 @@ export default function GetPage() {
       <Container>
       <Stack 
       direction='column'
-      p={20}
+      p={10}
       w='100%'
       >
        <img src={EventBarcord} />
