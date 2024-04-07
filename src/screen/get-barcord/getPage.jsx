@@ -128,6 +128,7 @@ export default function GetPage() {
           {formatDate(startDate)} ~ {formatDate(endDate)}
         </Text>
        </Box>
+       <Box h={2} />
        {/* 사진 장 수 표시 */}
        <Box
         display="flex"
@@ -147,8 +148,6 @@ export default function GetPage() {
         >{images.length}장</Text> {/* 아이콘과 텍스트 사이의 마진을 추가합니다. */}
       </Box>
       </Box>
-      <Box h={2} />
-      <Box h={2} />
       <CustomGetPicture images={images}/>
         </Stack>
       </Container>
