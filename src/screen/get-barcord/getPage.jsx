@@ -12,7 +12,11 @@ export default function GetPage() {
   const navigate = useNavigate();
   const location = useLocation();
   const { title, startDate, endDate, images} = location.state;
-  console.log(images);
+
+   // 페이지 최상단으로 스크롤하는 부분
+   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []); // 의존성 배열을 빈 배열로 설정하여 컴포넌트 마운트 시 1회만 실행
 
     // 날짜를 yyyy.mm.dd 형태로 변환하는 함수
     const formatDate = (date) => {
@@ -104,6 +108,7 @@ export default function GetPage() {
         <Text
         fontSize='md'
         color='rgba(255, 255, 255, 0.6)'
+        whiteSpace='nowrap'
         >
           {formatDate(startDate)} ~ {formatDate(endDate)}
         </Text>
