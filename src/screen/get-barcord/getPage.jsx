@@ -7,6 +7,7 @@ import EventMooco  from '/src/assets/barcord/event-mooco.svg';
 import EventEvent  from '/src/assets/barcord/event-event.svg';
 import { FaDownload } from 'react-icons/fa';
 import CustomGetPicture from '../../component/get-barcord/CustomGetPicture';
+import { saveAs } from 'file-saver';
 
 export default function GetPage() {
   const navigate = useNavigate();
@@ -25,10 +26,23 @@ export default function GetPage() {
       const month = ('0' + (date.getMonth() + 1)).slice(-2);
       const day = ('0' + date.getDate()).slice(-2);
       return `${year}.${month}.${day}`;
-    };
+    };    
+
+      // 바코드 다운로드 함수
+  const downloadImage = async () => {
+    try {
+      const imageSrc = '/src/assets/barcord/sample-barcord.jpg'; // 이미지 소스
+      const response = await fetch(imageSrc);
+      const blob = await response.blob(); // 이미지를 blob으로 변환
+      saveAs(blob, `${title}'s barcord.jpg`); // 파일로 저장, 파일 이름을 "sample-barcord.jpg"로 지정
+    } catch (error) {
+      console.error("다운로드 중 오류 발생:", error);
+    }
+  };
+
 
   return (
-    <Body>
+    <Body id="captureArea">
       <Container>
       <Stack 
       direction='column'
@@ -61,6 +75,7 @@ export default function GetPage() {
         display="flex" // 이 부분을 추가하여 Flex 컨테이너로 만듭니다.
         alignItems="center" // 아이콘과 텍스트를 세로 중앙으로 정렬합니다.
         justifyContent="center" // 아이콘과 텍스트를 가로 중앙으로 정렬합니다.
+        onClick={downloadImage}
       >
         <FaDownload />
         <Text 
