@@ -9,8 +9,9 @@ export const handleSubmit = async (files) => {
     
     // FormData 내용 콘솔에 출력 (디버깅 목적)
     for (const pair of formData.entries()) {
-      console.log(`${pair[0]}: ${pair[1]}`);
+      console.log(`entrys : ${pair[0]}: ${pair[1]}`);
     }
+
     try {
       // 서버에 POST 요청
       let response = await axios.post(
