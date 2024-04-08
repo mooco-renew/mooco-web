@@ -2,6 +2,7 @@ import { Body, Container } from '../../style/style'
 import { useNavigate } from 'react-router-dom';
 import { Button, Box, Stack, Text } from '@chakra-ui/react'
 import { useEffect, useState } from 'react';
+import { handleSubmit } from '../../api/barcord/sendImages';
 
 export default function CreateButtonPage({buttonRef, pictureRef, scrollToRef, name, title, startDate, endDate, images, setLoading }) {
   const navigate = useNavigate();
@@ -13,23 +14,26 @@ export default function CreateButtonPage({buttonRef, pictureRef, scrollToRef, na
     }
   }, []);
 
-  const handleNextStep = () => {
+  const handleNextStep = async () => {
     if(title != "" && images.length >= 30 && images.length <= 120){
       setLoading(true); 
-
-        setTimeout(() => { // setTimeout은 비동기 작업을 시뮬레이션하기 위해 사용
+      let data = await handleSubmit();
+      if(data.success == true) {
         navigate('/get-barcord', { state: {
           name: name,
           title: title,
           startDate: startDate,
           endDate: endDate,
-          images: images
+          images: images,
+          barcord_url: data.data.barcodeUrl
         }});
         setLoading(false); // 로딩 상태 해제
-      }, 2000); // 로딩 시뮬레이션을 위한 2초 지연
-  } else {
-    setErrorMessage(true);
-  }
+      } else if(data.success == false) {
+        alert(data.error.message);
+      } else {
+        alert("server error");
+      }
+  } 
   }
 
   return (
