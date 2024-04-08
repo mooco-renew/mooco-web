@@ -7,7 +7,7 @@ export default function CustomGetPicture({images}) {
     <div>
       <div className='GetGridImagesWrap'>
         {/* 이미지 목록 */}
-        {images.map((image, index) => (
+        {images?.map((image, index) => (
           <div key={index} className='GetImageWrap'>
             <img src={image} alt={`img-${index}`} className='GetImageStyle' />
           </div>

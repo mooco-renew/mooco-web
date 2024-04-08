@@ -21,13 +21,7 @@ export const handleSubmit = async (images) => {
       // 서버에 POST 요청
       const response = await axios.post(
         `${import.meta.env.VITE_APP_SERVER_HOST}/web/barcode`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+        formData);
       console.log('server-host : ', import.meta.env.VITE_APP_SERVER_HOST);
 
       if (response.data.success === true) {

@@ -13,7 +13,9 @@ import { saveAs } from 'file-saver';
 export default function GetPage() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { name, title, startDate, endDate, images, barcord_url} = location.state;
+  const [defaultDate, setDefaultDate] = useState(new Date());
+
+  const { name, title, startDate, endDate, images, barcord_url} = location.state ?? {};
 
    // 페이지 최상단으로 스크롤하는 부분
    useEffect(() => {
@@ -22,12 +24,15 @@ export default function GetPage() {
 
     // 날짜를 yyyy.mm.dd 형태로 변환하는 함수
     const formatDate = (date) => {
+      if (!(date instanceof Date) || isNaN(date.getTime())) {
+        // 유효하지 않은 date 처리
+        return "Invalid date"; // 적절한 기본값 또는 오류 메시지 반환
+      }
       const year = date.getFullYear();
-      // getMonth()는 0부터 시작하기 때문에 1을 더해주어야 함
       const month = ('0' + (date.getMonth() + 1)).slice(-2);
       const day = ('0' + date.getDate()).slice(-2);
       return `${year}.${month}.${day}`;
-    };    
+    };
 
     // 전체 화면 다운
     const captureAndDownloadScreenshot = () => {
@@ -44,7 +49,7 @@ export default function GetPage() {
       // 바코드 다운로드 함수
   const downloadImage = async () => {
     try {
-      const imageSrc = barcord_url; // 이미지 소스
+      const imageSrc = barcord_url || ''; // 이미지 소스
       const response = await fetch(imageSrc);
       const blob = await response.blob(); // 이미지를 blob으로 변환
       saveAs(blob, `${name}'s barcord.png`); // 파일로 저장, 파일 이름을 "sample-barcord.jpg"로 지정
@@ -63,6 +68,7 @@ export default function GetPage() {
       direction='column'
       p={10}
       w='100%'
+      maxW={768}
       >
        <img src={EventBarcord} />
         {/* 무코 사진 */}
@@ -143,7 +149,7 @@ export default function GetPage() {
 
        </Box>
         {/* 이벤트 제목, 날짜 */}
-       <img src={EventMooco} />
+       <img src={EventMooco || ''} />
        <Box
        textAlign='end'
        p={3}
@@ -187,7 +193,7 @@ export default function GetPage() {
         color='rgba(255, 255, 255, 0.6)'
         whiteSpace='nowrap'
         >
-          {formatDate(startDate)} ~ {formatDate(endDate)}
+          {formatDate(startDate) || formatDate(defaultDate)} ~ {formatDate(endDate) || formatDate(defaultDate)}
         </Text>
        </Box>
        <Box h={2} />
@@ -207,7 +213,7 @@ export default function GetPage() {
         <Text 
         color='#ffffff'
         fontSize='sm'
-        >{images.length || 0}장</Text> {/* 아이콘과 텍스트 사이의 마진을 추가합니다. */}
+        >{images?.length || 0}장</Text> {/* 아이콘과 텍스트 사이의 마진을 추가합니다. */}
       </Box>
       </Box>
       <CustomGetPicture images={images}/>
