@@ -16,6 +16,7 @@ export default function CreatePage() {
   const [allowScrollToMiddle, setAllowScrollToMiddle] = useState(false);
 const [allowScrollToEnd, setAllowScrollToEnd] = useState(false);
 
+/*
 useEffect(() => {
   window.addEventListener('scroll', handleScroll);
   return () => {
@@ -30,7 +31,7 @@ const allowScrollToMiddleHandler = () => {
 const allowScrollToEndHandler = () => {
   setAllowScrollToEnd(true);
 };
-
+*/
   const [loading, setLoading] = useState(false); // 로딩
   const [files, setFiles] = useState([]); // 기본 파일
   const [title, setTitle] = useState("");
