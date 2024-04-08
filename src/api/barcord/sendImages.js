@@ -2,13 +2,17 @@ import axios from "axios";
 
 export const handleSubmit = async (images) => {
     const formData = new FormData();
-    console.log('출력 파일 :', images);
+    console.log('출력 :', images);
 
     images.forEach((file) => {
+      console.log('000', file);
       formData.append('photos[]', file); // 'images[]'는 서버에서 해당 파일 데이터를 배열로 참조할 키입니다.
     });
-    
-    console.log('data : ', formData);
+
+    // FormData의 모든 키와 값을 순회하며 출력
+    for (let pair of formData.entries()) {
+      console.log(`${pair[0]}:`, pair[1]);
+    }
 
     try {
       // 서버에 POST 요청
