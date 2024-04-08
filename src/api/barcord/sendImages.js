@@ -27,6 +27,7 @@ export const handleSubmit = async ({images}) => {
           },
         }
       );
+      console.log('server-host : ', import.meta.env.VITE_APP_SERVER_HOST);
 
       if (response.data.success === true) {
         console.log('이미지 불러오기 성공!', response.data);
