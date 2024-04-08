@@ -16,6 +16,8 @@ export const handleSubmit = async (images) => {
     for (const pair of formData.entries()) {
       console.log(`${pair[0]}: ${pair[1]}`);
     }
+    
+    console.log('data : ', formData);
 
     try {
       // 서버에 POST 요청
