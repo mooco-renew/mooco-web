@@ -6,12 +6,12 @@ export default function CustomCreateInputPicture({images, setImages, files, setF
   const fileInputRef = useRef(null); // 파일 입력을 위한 ref 생성
 
   const handleImageChange = (e) => {
-    const newfiles = Array.from(e.target.files);
-    const newImages = newfiles.map((file) =>
+    const forImagesArray = Array.from(e.target.files);
+    const newImages = forImagesArray.map((file) =>
       URL.createObjectURL(file)
     );
     setImages([...images, ...newImages]);
-    setFiles([...files, ...newfiles]); // 파일 객체 추가
+    setFiles([...files, ...e.target.files]);
   };
 
     // 이미지 삭제 함수

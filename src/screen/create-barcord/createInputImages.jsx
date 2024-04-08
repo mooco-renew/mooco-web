@@ -3,7 +3,7 @@ import { Box, Stack } from '@chakra-ui/react'
 import { Button, Text } from '@chakra-ui/react'
 import CustomCreateInputPicture from '../../component/create-barcord/CustomCreateInputPicture';
 
-export default function CreateInputPicturePage({images,setImages, inputRef, pictureRef, buttonRef, scrollToRef, files, setFiles}) {
+export default function CreateInputPicturePage({images,setImages, scrollToRef, files, setFiles}) {
 
   return (
     <Body>
@@ -12,7 +12,6 @@ export default function CreateInputPicturePage({images,setImages, inputRef, pict
       direction='column'
       p={50}
       minW={430}
-      ref={pictureRef}
       >
         <Text 
         fontSize='xl'

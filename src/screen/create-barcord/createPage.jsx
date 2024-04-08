@@ -7,18 +7,37 @@ import Spinner from 'react-spinner-material';
 
 export default function CreatePage() {
   const navigate = useNavigate();
-  const inputRef = useRef(null); // datepicker
-  const pictureRef = useRef(null); // CustomCreateInputPicture 섹션을 위한 ref
-  const buttonRef = useRef(null); // Button 섹션을 위한 ref
-  const [loading, setLoading] = useState(false);
-  const [files, setFiles] = useState([]);
 
+  // 스크롤 조절용
+  const startRef = useRef(null); // 인풋 
+  const middleRef = useRef(null); // 사진 
+  const endRef = useRef(null); // 버튼
+
+  const [allowScrollToMiddle, setAllowScrollToMiddle] = useState(false);
+const [allowScrollToEnd, setAllowScrollToEnd] = useState(false);
+
+useEffect(() => {
+  window.addEventListener('scroll', handleScroll);
+  return () => {
+    window.removeEventListener('scroll', handleScroll);
+  };
+}, [allowScrollToMiddle, allowScrollToEnd]);
+
+const allowScrollToMiddleHandler = () => {
+  setAllowScrollToMiddle(true);
+};
+
+const allowScrollToEndHandler = () => {
+  setAllowScrollToEnd(true);
+};
+
+  const [loading, setLoading] = useState(false); // 로딩
+  const [files, setFiles] = useState([]); // 기본 파일
   const [title, setTitle] = useState("");
   const [name, setName] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-
-  const [images, setImages] = useState([]);
+  const [images, setImages] = useState([]); // 파일 이미지 url
   
   // title 변경용 input
   const handleTitleChange = (event) => setTitle(event.target.value);
@@ -29,6 +48,17 @@ export default function CreatePage() {
     // 특정 섹션으로 스크롤하는 함수
     const scrollToRef = (ref) => {
       ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: "nearest" });
+    };
+
+    const handleScroll = () => {
+      const middleTop = middleRef.current ? middleRef.current.getBoundingClientRect().top : 0;
+      const endTop = endRef.current ? endRef.current.getBoundingClientRect().top : 0;
+    
+      if (!allowScrollToMiddle && middleTop <= window.innerHeight) {
+        window.scrollTo(0, middleRef.current.offsetTop - window.innerHeight);
+      } else if (allowScrollToMiddle && !allowScrollToEnd && endTop <= window.innerHeight) {
+        window.scrollTo(0, endRef.current.offsetTop - window.innerHeight);
+      }
     };
 
   return (
@@ -43,6 +73,7 @@ export default function CreatePage() {
     :
     (
       <div >
+        <div ref={startRef}>
          <CreateInputPage 
     startDate={startDate} 
     setStartDate={setStartDate} 
@@ -52,23 +83,20 @@ export default function CreatePage() {
     name={name}
     handleTitleChange={handleTitleChange}
     handleNameChange={handleNameChange}
-    inputRef={inputRef}
-    pictureRef={pictureRef}
     scrollToRef={scrollToRef}
     />
+    </div>
+    <div ref={middleRef}>
     <CreateInputPicturePage 
     images={images}
     setImages={setImages}
-    inputRef={inputRef}
-    pictureRef={pictureRef}
-    buttonRef={buttonRef}
     scrollToRef={scrollToRef}
     files={files}
     setFiles={setFiles}
     />
+    </div>
+    <div ref={endRef}>
     <CreateButtonPage 
-    buttonRef={buttonRef}
-    pictureRef={pictureRef}
     scrollToRef={scrollToRef}
     name={name}
     title={title}
@@ -78,6 +106,7 @@ export default function CreatePage() {
     setLoading={setLoading}
     files={files}
     />
+    </div>
       </div>
     )
     }

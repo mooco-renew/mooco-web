@@ -4,7 +4,7 @@ import { Button, Box, Stack, Text } from '@chakra-ui/react'
 import { useEffect, useState } from 'react';
 import { handleSubmit } from '../../api/barcord/sendImages';
 
-export default function CreateButtonPage({buttonRef, pictureRef, scrollToRef, name, title, startDate, endDate, images, setLoading, files }) {
+export default function CreateButtonPage({scrollToRef, name, title, startDate, endDate, images, setLoading, files }) {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState(false);
 
@@ -46,7 +46,6 @@ export default function CreateButtonPage({buttonRef, pictureRef, scrollToRef, na
       <Stack 
       direction='column'
       p={50}
-      ref={buttonRef}
       >
          <Text 
         fontSize='xl'

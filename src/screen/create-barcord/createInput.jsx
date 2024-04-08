@@ -5,7 +5,7 @@ import { Button, Box, Stack } from '@chakra-ui/react'
 import { Text } from '@chakra-ui/react'
 import { useEffect} from 'react';
 
-export default function CreateInputPage({startDate, setStartDate, endDate, setEndDate, title, name, handleTitleChange,  handleNameChange, inputRef, pictureRef, scrollToRef}) {
+export default function CreateInputPage({startDate, setStartDate, endDate, setEndDate, title, name, handleTitleChange,  handleNameChange, scrollToRef}) {
 
   return (
     <Body>
@@ -14,7 +14,6 @@ export default function CreateInputPage({startDate, setStartDate, endDate, setEn
       direction='column'
       justifyContent='center'
       p={50}
-      ref={inputRef}
       >
         <Text 
         fontSize='xl'
