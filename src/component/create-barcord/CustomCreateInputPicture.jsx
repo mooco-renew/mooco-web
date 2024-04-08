@@ -34,6 +34,7 @@ export default function CustomCreateInputPicture({images, setImages}) {
         onChange={handleImageChange}
         ref={fileInputRef}
         style={{ display: 'none' }} // 파일 입력 숨기기
+        accept="image/*" // 이미지 파일만 선택할 수 있도록 변경
       />
       <div className='GridImagesWrap'>
         {/* 파일 선택 버튼 */}
