@@ -35,9 +35,9 @@ export default function CreateButtonPage({buttonRef, pictureRef, scrollToRef, na
         alert("server error");
         navigate('/');
       }
-  } else if(
+  } else {
     setErrorMessage(true);
-  )
+  }
   }
 
   return (
