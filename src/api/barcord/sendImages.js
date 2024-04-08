@@ -2,20 +2,11 @@ import axios from "axios";
 
 export const handleSubmit = async (images) => {
     const formData = new FormData();
-    console.log('출력 이미지 :', images);
+    console.log('출력 파일 :', images);
 
-    for (const image of images) {
-      const response = await fetch(image);
-      const blob = await response.blob();
-      const file = new File([blob], "image.jpg", { type: "image/jpeg" });
-      formData.append("photos[]", file);
-      console.log(file);
-    }
-
-    // FormData 내용 콘솔에 출력 (디버깅 목적)
-    for (const pair of formData.entries()) {
-      console.log(`${pair[0]}: ${pair[1]}`);
-    }
+    images.forEach((file) => {
+      formData.append('photos[]', file); // 'images[]'는 서버에서 해당 파일 데이터를 배열로 참조할 키입니다.
+    });
     
     console.log('data : ', formData);
 

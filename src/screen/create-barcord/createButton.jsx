@@ -4,7 +4,7 @@ import { Button, Box, Stack, Text } from '@chakra-ui/react'
 import { useEffect, useState } from 'react';
 import { handleSubmit } from '../../api/barcord/sendImages';
 
-export default function CreateButtonPage({buttonRef, pictureRef, scrollToRef, name, title, startDate, endDate, images, setLoading }) {
+export default function CreateButtonPage({buttonRef, pictureRef, scrollToRef, name, title, startDate, endDate, images, setLoading, files }) {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState(false);
 
@@ -17,7 +17,7 @@ export default function CreateButtonPage({buttonRef, pictureRef, scrollToRef, na
   const handleNextStep = async () => {
     if(title != "" && images.length >= 30 && images.length <= 120){
       setLoading(true); 
-      let data = await handleSubmit(images);
+      let data = await handleSubmit(files);
       if(data.success == true) {
         navigate('/get-barcord', { state: {
           name: name,

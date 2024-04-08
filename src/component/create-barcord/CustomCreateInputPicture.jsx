@@ -2,15 +2,16 @@ import React, { useState, useRef } from 'react';
 import { FaCamera, FaTimesCircle  } from 'react-icons/fa'; // react-icons에서 카메라 아이콘 가져오기
 import "/src/component/create-barcord/CustomCreateValue.css";
 
-export default function CustomCreateInputPicture({images, setImages}) {
+export default function CustomCreateInputPicture({images, setImages, files, setFiles}) {
   const fileInputRef = useRef(null); // 파일 입력을 위한 ref 생성
 
   const handleImageChange = (e) => {
-    const files = Array.from(e.target.files);
-    const newImages = files.map((file) =>
+    const newfiles = Array.from(e.target.files);
+    const newImages = newfiles.map((file) =>
       URL.createObjectURL(file)
     );
     setImages([...images, ...newImages]);
+    setFiles([...files, ...newfiles]); // 파일 객체 추가
   };
 
     // 이미지 삭제 함수

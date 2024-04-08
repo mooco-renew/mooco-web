@@ -3,7 +3,7 @@ import { Box, Stack } from '@chakra-ui/react'
 import { Button, Text } from '@chakra-ui/react'
 import CustomCreateInputPicture from '../../component/create-barcord/CustomCreateInputPicture';
 
-export default function CreateInputPicturePage({images,setImages, inputRef, pictureRef, buttonRef, scrollToRef}) {
+export default function CreateInputPicturePage({images,setImages, inputRef, pictureRef, buttonRef, scrollToRef, files, setFiles}) {
 
   return (
     <Body>
@@ -35,6 +35,8 @@ export default function CreateInputPicturePage({images,setImages, inputRef, pict
         <CustomCreateInputPicture 
         images={images}
         setImages={setImages}
+        files={files}
+        setFiles={setFiles}
         />
         <Box mt={30} />
         {/*

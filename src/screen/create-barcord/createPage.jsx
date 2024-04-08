@@ -11,6 +11,7 @@ export default function CreatePage() {
   const pictureRef = useRef(null); // CustomCreateInputPicture 섹션을 위한 ref
   const buttonRef = useRef(null); // Button 섹션을 위한 ref
   const [loading, setLoading] = useState(false);
+  const [files, setFiles] = useState([]);
 
   const [title, setTitle] = useState("");
   const [name, setName] = useState("");
@@ -41,7 +42,7 @@ export default function CreatePage() {
     ) 
     :
     (
-      <div>
+      <div >
          <CreateInputPage 
     startDate={startDate} 
     setStartDate={setStartDate} 
@@ -62,6 +63,8 @@ export default function CreatePage() {
     pictureRef={pictureRef}
     buttonRef={buttonRef}
     scrollToRef={scrollToRef}
+    files={files}
+    setFiles={setFiles}
     />
     <CreateButtonPage 
     buttonRef={buttonRef}
@@ -73,6 +76,7 @@ export default function CreatePage() {
     endDate={endDate}
     images={images}
     setLoading={setLoading}
+    files={files}
     />
       </div>
     )
