@@ -20,7 +20,7 @@ export const handleSubmit = async (images) => {
     try {
       // 서버에 POST 요청
       const response = await axios.post(
-        `${import.meta.env.VITE_APP_SERVER_HOST}/web/barcord`,
+        `${import.meta.env.VITE_APP_SERVER_HOST}/web/barcode`,
         formData,
         {
           headers: {
