@@ -17,7 +17,7 @@ export default function CreateButtonPage({buttonRef, pictureRef, scrollToRef, na
   const handleNextStep = async () => {
     if(title != "" && images.length >= 30 && images.length <= 120){
       setLoading(true); 
-      let data = await handleSubmit();
+      let data = await handleSubmit(images);
       if(data.success == true) {
         navigate('/get-barcord', { state: {
           name: name,
