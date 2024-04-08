@@ -55,7 +55,9 @@ export default function GetPage() {
 
 
   return (
-    <Body>
+    <Body
+    id='captureArea'
+    >
       <Container>
       <Stack 
       direction='column'
