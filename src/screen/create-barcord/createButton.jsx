@@ -30,8 +30,10 @@ export default function CreateButtonPage({buttonRef, pictureRef, scrollToRef, na
         setLoading(false); // 로딩 상태 해제
       } else if(data.success == false) {
         alert(data.error.message);
+        navigate('/');
       } else {
         alert("server error");
+        navigate('/');
       }
   } 
   }
