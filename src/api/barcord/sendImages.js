@@ -1,7 +1,8 @@
 import axios from "axios";
 
-export const handleSubmit = async ({images}) => {
+export const handleSubmit = async (images) => {
     const formData = new FormData();
+    console.log('출력 이미지 :', images);
 
     for (const image of images) {
       const response = await fetch(image);
