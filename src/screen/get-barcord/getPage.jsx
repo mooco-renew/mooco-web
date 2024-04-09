@@ -69,6 +69,7 @@ export default function GetPage() {
       p={10}
       w='100%'
       maxW={768}
+      minW={300}
       bg='#151515'
       >
        <img src={EventBarcord} />
@@ -90,6 +91,7 @@ export default function GetPage() {
        </div>
        <Box h={1} /> 
         {/* 다운로드 버튼 */}
+        {/*
         <Stack direction='row' justifyContent='space-between'>
           <Box>
           <Button
@@ -105,7 +107,7 @@ export default function GetPage() {
         <Text 
         as='b'
         fontSize='sm'
-        >다시 만들기</Text> {/* 아이콘과 텍스트 사이의 마진을 추가합니다. */}
+        >다시 만들기</Text> 
       </Button>
           </Box>
           <Box>
@@ -129,7 +131,7 @@ export default function GetPage() {
         ml={2}
         as='b'
         fontSize='sm'
-        >바코드</Text> {/* 아이콘과 텍스트 사이의 마진을 추가합니다. */}
+        >바코드</Text> 
       </Button>
       <Box w={3} />
       <Button
@@ -147,7 +149,7 @@ export default function GetPage() {
         ml={2}
         as='b'
         fontSize='sm'
-        >전체</Text> {/* 아이콘과 텍스트 사이의 마진을 추가합니다. */}
+        >전체</Text> 
       </Button>
       </Box>
        </Box>
@@ -155,7 +157,9 @@ export default function GetPage() {
        <Box>
 
        </Box>
+       */}
         {/* 이벤트 제목, 날짜 */}
+        <Box h={2} />
        <img src={EventMooco || ''} />
        <Box
        textAlign='end'
@@ -186,24 +190,24 @@ export default function GetPage() {
         </Stack>
         </Box>
         <Box
-        h={2}
+        h={1}
         >
         </Box>
         <Text
         as='b'
-        fontSize='3xl'
+        fontSize='2xl'
         >
           {title || "undifined"}
         </Text>
         <Text
-        fontSize='md'
+        fontSize='sm'
         color='rgba(255, 255, 255, 0.6)'
         whiteSpace='nowrap'
         >
           {formatDate(startDate) || formatDate(defaultDate)} ~ {formatDate(endDate) || formatDate(defaultDate)}
         </Text>
        </Box>
-       <Box h={2} />
+       <Box h={1} />
        {/* 사진 장 수 표시 */}
        <Box
         display="flex"
@@ -211,8 +215,8 @@ export default function GetPage() {
         justifyContent='flex-end'
              >
        <Box
-        p={2}
-        border='2px solid #ffffff'
+        p={1}
+        border='1px solid #ffffff'
         borderRadius={10}
         display="flex" // 이 부분을 추가하여 Flex 컨테이너로 만듭니다.
         justifyContent="center" // 아이콘과 텍스트를 가로 중앙으로 정렬합니다.
