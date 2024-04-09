@@ -1,10 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useRef, useState } from 'react';
 import CreateInputPage from './\bcreateInput';
-import { Text, Box } from '@chakra-ui/react'
+import { Text, Box , Stack} from '@chakra-ui/react'
 import CreateInputPicturePage from './createInputImages';
 import CreateButtonPage from './createButton';
 import Spinner from 'react-spinner-material';
+import { Body, Container } from '../../style/style';
 
 export default function CreatePage() {
   const navigate = useNavigate();
@@ -68,7 +69,13 @@ const allowScrollToEndHandler = () => {
     {loading ? 
     (
             // 로딩 중에 표시할 컴포넌트
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+            <Body>
+              <Container>
+                <Stack 
+                direction='column'
+                alignItems='center'
+                justifyContent='center'
+                >
             <Spinner size={120} spinnerColor={"#333"} spinnerWidth={2} visible={loading} />
             <Box h={1}/>
             <Text 
@@ -76,7 +83,9 @@ const allowScrollToEndHandler = () => {
         color='rgba(255, 255, 255, 0.5)'
         textAlign='center'
         >약 30초 ~ 1분 정도 소요됩니다.</Text>
-          </div>
+        </Stack>
+        </Container>
+         </Body>
     ) 
     :
     (
