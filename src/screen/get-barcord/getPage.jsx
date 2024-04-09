@@ -228,6 +228,21 @@ export default function GetPage() {
       </Box>
       </Box>
       <CustomGetPicture images={images}/>
+      <Box h={5} />
+      <Button
+        size='lg'
+        colorScheme='whiteAlpha' 
+        borderRadius={12}
+        display="flex" // 이 부분을 추가하여 Flex 컨테이너로 만듭니다.
+        alignItems="center" // 아이콘과 텍스트를 세로 중앙으로 정렬합니다.
+        justifyContent="center" // 아이콘과 텍스트를 가로 중앙으로 정렬합니다.
+        onClick={() => navigate('/')}
+      >
+        <Text 
+        fontSize='ml'
+        >다시 만들기</Text> 
+      </Button>
+      <Box h={5} />
         </Stack>
       </Container>
     </Body>
