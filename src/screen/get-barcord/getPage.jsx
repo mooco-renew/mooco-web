@@ -207,7 +207,6 @@ export default function GetPage() {
           {formatDate(startDate) || formatDate(defaultDate)} ~ {formatDate(endDate) || formatDate(defaultDate)}
         </Text>
        </Box>
-       <Box h={1} />
        {/* 사진 장 수 표시 */}
        <Box
         display="flex"
