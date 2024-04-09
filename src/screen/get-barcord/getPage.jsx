@@ -16,7 +16,8 @@ export default function GetPage() {
   const [defaultDate, setDefaultDate] = useState(new Date());
 
   const { name, title, startDate, endDate, images, barcord_url} = location.state ?? {};
-
+  console.log('barcord-url : ', barcord_url);
+  
    // 페이지 최상단으로 스크롤하는 부분
    useEffect(() => {
     window.scrollTo(0, 0);
