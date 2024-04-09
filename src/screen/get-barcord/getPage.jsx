@@ -16,8 +16,8 @@ export default function GetPage() {
   const [defaultDate, setDefaultDate] = useState(new Date());
 
   const { name, title, startDate, endDate, images, barcord_url} = location.state ?? {};
-  console.log('barcord-url : ', barcord_url);
-  
+  // console.log('barcord-url : ', barcord_url);
+
    // 페이지 최상단으로 스크롤하는 부분
    useEffect(() => {
     window.scrollTo(0, 0);
@@ -38,7 +38,7 @@ export default function GetPage() {
     // 전체 화면 다운
     const captureAndDownloadScreenshot = () => {
       // 캡처하고 싶은 요소의 ref 또는 직접 선택
-      const element = document.getElementById('captureArea'); // 예시로 'captureArea'라는 ID를 가진 요소를 선택
+      const element = document.getElementById('captureAllArea'); // 예시로 'captureArea'라는 ID를 가진 요소를 선택
       html2canvas(element).then((canvas) => {
         // 캔버스를 이미지로 변환
         canvas.toBlob((blob) => {
@@ -49,20 +49,19 @@ export default function GetPage() {
 
       // 바코드 다운로드 함수
   const downloadImage = async () => {
-    try {
-      const imageSrc = barcord_url || ''; // 이미지 소스
-      const response = await fetch(imageSrc);
-      const blob = await response.blob(); // 이미지를 blob으로 변환
-      saveAs(blob, `${name}'s barcord.png`); // 파일로 저장, 파일 이름을 "sample-barcord.jpg"로 지정
-    } catch (error) {
-      console.error("다운로드 중 오류 발생:", error);
-    }
+    const element = document.getElementById('captureBarcordArea'); // 예시로 'captureArea'라는 ID를 가진 요소를 선택
+    html2canvas(element).then((canvas) => {
+      // 캔버스를 이미지로 변환
+      canvas.toBlob((blob) => {
+        saveAs(blob, `${name}'s barcord.png`); // 이미지 파일로 저장
+      });
+    });
   };
 
 
   return (
     <Body
-    id='captureArea'
+    id='captureAllArea'
     >
       <Container>
       <Stack 
@@ -80,6 +79,7 @@ export default function GetPage() {
         alt='barcord'
         w='100%' 
         borderRadius={15}
+        id='captureBarcordArea'
         />
        </Box>
        <Box h={1} /> 

@@ -9,7 +9,7 @@ export const handleSubmit = async (files) => {
 
   // FormData 내용 콘솔에 출력 (디버깅 목적)
   for (const pair of formData.entries()) {
-    console.log(`entrys : ${pair[0]}: ${pair[1]}`);
+    // console.log(`entrys : ${pair[0]}: ${pair[1]}`);
   }
 
   try {
@@ -23,10 +23,10 @@ export const handleSubmit = async (files) => {
         },
       }
     );
-    console.log('server-host : ', import.meta.env.VITE_APP_SERVER_HOST);
+    // console.log('server-host : ', import.meta.env.VITE_APP_SERVER_HOST);
 
     if (response.data.success === true) {
-      console.log('이미지 불러오기 성공!', response.data);
+      // console.log('이미지 불러오기 성공!', response.data);
       return response.data;
     } else {
       console.log('이미지 불러오기 실패!', response.data);
