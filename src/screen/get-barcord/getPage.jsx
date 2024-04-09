@@ -49,18 +49,19 @@ export default function GetPage() {
 
       // 바코드 다운로드 함수
       const downloadImage = async () => {
-        try {
-          const imageSrc = `https://cors-anywhere.herokuapp.com/${barcord_url}`;
-          const response = await fetch(imageSrc);
-          const blob = await response.blob(); // 이미지를 blob으로 변환
-          saveAs(blob, "downloaded_barcord.png"); // 파일로 저장
-        } catch (error) {
-          console.error("다운로드 중 오류 발생:", error);
-        }
+        // 캡처하고 싶은 요소의 ref 또는 직접 선택
+      const element = document.getElementById('captureBarcodeArea'); // 예시로 'captureArea'라는 ID를 가진 요소를 선택
+      html2canvas(element).then((canvas) => {
+        // 캔버스를 이미지로 변환
+        canvas.toBlob((blob) => {
+          saveAs(blob, `${name}'s barcode.png`); // 이미지 파일로 저장
+        });
+      });
       };
 
   return (
     <Body
+    id='captureAllArea'
     >
       <Container>
       <Stack 
@@ -69,14 +70,15 @@ export default function GetPage() {
       w='100%'
       maxW={768}
       bg='#151515'
-      id='captureAllArea'
       >
        <img src={EventBarcord} />
         {/* 무코 사진 */}
        <Box h={2} /> 
+       <div
+          id='captureBarcodeArea'
+       >
        <Box w='100%' 
        borderRadius={15}
-       id='captureBarcodeArea'
         >
         <Image 
         src={barcord_url}
@@ -85,6 +87,7 @@ export default function GetPage() {
         borderRadius={15}
         />
        </Box>
+       </div>
        <Box h={1} /> 
         {/* 다운로드 버튼 */}
         <Stack direction='row' justifyContent='space-between'>
