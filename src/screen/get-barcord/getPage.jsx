@@ -49,7 +49,7 @@ export default function GetPage() {
 
       // 바코드 다운로드 함수
   const downloadImage = async () => {
-    const element = document.getElementById('captureBarcordArea'); // 예시로 'captureArea'라는 ID를 가진 요소를 선택
+    const element = document.getElementById('captureBarcodeArea'); // 예시로 'captureArea'라는 ID를 가진 요소를 선택
     html2canvas(element).then((canvas) => {
       // 캔버스를 이미지로 변환
       canvas.toBlob((blob) => {
@@ -73,13 +73,15 @@ export default function GetPage() {
        <img src={EventBarcord} />
         {/* 무코 사진 */}
        <Box h={2} /> 
-       <Box w='100%' borderRadius={15} >
+       <Box w='100%' 
+       borderRadius={15}
+       id='captureBarcodeArea'
+        >
         <Image 
         src={barcord_url}
         alt='barcord'
         w='100%' 
         borderRadius={15}
-        id='captureBarcordArea'
         />
        </Box>
        <Box h={1} /> 
