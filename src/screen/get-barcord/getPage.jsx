@@ -48,16 +48,16 @@ export default function GetPage() {
     };
 
       // 바코드 다운로드 함수
-  const downloadImage = async () => {
-    const element = document.getElementById('captureBarcodeArea'); // 예시로 'captureArea'라는 ID를 가진 요소를 선택
-    html2canvas(element).then((canvas) => {
-      // 캔버스를 이미지로 변환
-      canvas.toBlob((blob) => {
-        saveAs(blob, `${name}'s barcord.png`); // 이미지 파일로 저장
-      });
-    });
-  };
-
+      const downloadImage = async () => {
+        try {
+          const imageSrc = `https://cors-anywhere.herokuapp.com/${barcord_url}`;
+          const response = await fetch(imageSrc);
+          const blob = await response.blob(); // 이미지를 blob으로 변환
+          saveAs(blob, "downloaded_barcord.png"); // 파일로 저장
+        } catch (error) {
+          console.error("다운로드 중 오류 발생:", error);
+        }
+      };
 
   return (
     <Body
