@@ -61,7 +61,6 @@ export default function GetPage() {
 
   return (
     <Body
-    id='captureAllArea'
     >
       <Container>
       <Stack 
@@ -69,6 +68,8 @@ export default function GetPage() {
       p={10}
       w='100%'
       maxW={768}
+      bg='#151515'
+      id='captureAllArea'
       >
        <img src={EventBarcord} />
         {/* 무코 사진 */}
