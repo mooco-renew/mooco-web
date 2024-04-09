@@ -82,7 +82,7 @@ const allowScrollToEndHandler = () => {
         fontSize='sm'
         color='rgba(255, 255, 255, 0.5)'
         textAlign='center'
-        >약 30초 ~ 1분 정도 소요됩니다.</Text>
+        >약 30초에서 1분 정도 소요됩니다.</Text>
         </Stack>
         </Container>
          </Body>
