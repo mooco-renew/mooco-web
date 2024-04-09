@@ -4,7 +4,7 @@ export const handleSubmit = async (files) => {
   const formData = new FormData();
 
   for (const file of files) {
-    formData.append('photos[]', file);
+    formData.append('photos', file);
   }
 
   // FormData 내용 콘솔에 출력 (디버깅 목적)
