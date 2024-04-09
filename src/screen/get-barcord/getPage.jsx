@@ -42,7 +42,7 @@ export default function GetPage() {
       html2canvas(element).then((canvas) => {
         // 캔버스를 이미지로 변환
         canvas.toBlob((blob) => {
-          saveAs(blob, `${name}'s pull-screen.png`); // 이미지 파일로 저장
+          saveAs(blob, `${name}'s full-screen.png`); // 이미지 파일로 저장
         });
       });
     };
