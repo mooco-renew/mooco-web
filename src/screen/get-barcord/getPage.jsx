@@ -227,7 +227,7 @@ export default function GetPage() {
       </Box>
       </Box>
       <CustomGetPicture images={images}/>
-      <Box h={5} />
+      <Box h={10} />
       <Button
         size='lg'
         colorScheme='whiteAlpha' 
@@ -241,7 +241,7 @@ export default function GetPage() {
         fontSize='ml'
         >다시 만들기</Text> 
       </Button>
-      <Box h={5} />
+      <Box h={10} />
         </Stack>
       </Container>
     </Body>
