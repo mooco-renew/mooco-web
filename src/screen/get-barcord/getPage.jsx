@@ -161,8 +161,6 @@ export default function GetPage() {
        </Box>
        */}
         {/* 이벤트 제목, 날짜 */}
-        <Box h={2} />
-       <img src={EventMooco || ''} />
        <Box
        textAlign='end'
        p={3}
