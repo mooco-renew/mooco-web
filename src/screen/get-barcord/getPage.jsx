@@ -9,6 +9,7 @@ import { FaDownload } from 'react-icons/fa';
 import CustomGetPicture from '../../component/get-barcord/CustomGetPicture';
 import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
+import InstargramModal from '../../component/get-barcord/InstargramModal';
 
 export default function GetPage() {
   const navigate = useNavigate();
@@ -72,6 +73,7 @@ export default function GetPage() {
       minW={300}
       bg='#151515'
       >
+        <InstargramModal />
        <img src={EventBarcord} />
         {/* 무코 사진 */}
        <Box h={2} /> 
