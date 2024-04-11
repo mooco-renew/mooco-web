@@ -73,7 +73,7 @@ export default function GetPage() {
       minW={300}
       bg='#151515'
       >
-        <InstargramModal />
+        {/*     <InstargramModal /> */}
        <img src={EventBarcord} />
         {/* 무코 사진 */}
        <Box h={2} /> 

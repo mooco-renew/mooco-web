@@ -38,10 +38,10 @@ export default function InstargramModal() {
             <ModalBody
             bg="#000000"
             >
-              <img
+              <Image 
                 src='/src/assets/get/mooco-instargram.jpeg'
                 alt='instargram-modal'
-                style={{ width: '100%', padding: '5px'}}
+                w='90%' 
               />
             </ModalBody>
             <ModalFooter
